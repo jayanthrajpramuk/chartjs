@@ -57,6 +57,7 @@ var bar_chart = new Chart(bar_ctx, {
 					display: function (context) {
 						return context.dataset.data[context.dataIndex] > 0;
 					},
+					borderRadius: 6,
 					font: {
 						weight: 'bold'
 					},
