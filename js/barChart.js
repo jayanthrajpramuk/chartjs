@@ -9,7 +9,7 @@
 var dataPack1 = [2,6,44,9,32];
 var dataPack2 = [4,18,9,9,19];
 var dataPack3 = [3,7,16,8,10];
-var dates = ["LC15699","MC7346V1","MR15678","MR6758587","MR54535646"];
+var dates = ["LC15699", "MC7346V1", "MR15678", "MR6758587", "MR54535646"];
 
 // Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
 

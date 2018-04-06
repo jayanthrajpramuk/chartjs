@@ -21,6 +21,16 @@ var chartData = {
 				1,5,2,8,3,9,1,4,9,6,4,9,7,9,3,7,9,8
 				]
 			},
+				{
+								type: 'line',
+								label: 'Trajectory2',
+								borderColor: window.chartColors.red,
+								borderWidth: 3,
+								fill: false,
+								data: [
+								4,6,2,5,7,9,1,6,8,0
+								]
+							},
 			{
 				type: 'bar',
 				label: 'Total',
