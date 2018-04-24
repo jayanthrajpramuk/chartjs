@@ -13,6 +13,7 @@ var dates = ["LC15699", "MC7346V1", "MR15678", "MR6758587", "MR54535646"];
 
 // Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
 
+
 var bar_ctx = document.getElementById('barChart');
 var bar_chart = new Chart(bar_ctx, {
 		type: 'bar',
