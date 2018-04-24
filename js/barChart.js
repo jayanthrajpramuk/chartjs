@@ -1,18 +1,16 @@
-
 // Bar - Start
 
 // Return with commas in between
-  var numberWithCommas = function(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
+var numberWithCommas = function (x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
 
-var dataPack1 = [2,6,44,9,32];
-var dataPack2 = [4,18,9,9,19];
-var dataPack3 = [3,7,16,8,10];
+var dataPack1 = [2, 6, 44, 9, 32];
+var dataPack2 = [4, 18, 9, 9, 19];
+var dataPack3 = [3, 7, 16, 8, 10];
 var dates = ["LC15699", "MC7346V1", "MR15678", "MR6758587", "MR54535646"];
 
 // Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
-
 
 var bar_ctx = document.getElementById('barChart');
 var bar_chart = new Chart(bar_ctx, {
@@ -98,18 +96,22 @@ var bar_chart = new Chart(bar_ctx, {
 				display: true,
 				position: 'bottom',
 				onClick: function (evt, item) {
-					alert('legend onClick: event:' + evt+'item :'+ item.text);
+					alert('legend onClick: event:' + evt + 'item :' + item.text);
 				}
 			},
-			onClick : function(evt, legendItem) {
+			onClick: function (evt, legendItem, x) {
 
 				var activePoint = bar_chart.getElementAtEvent(evt)[0];
-   var data = activePoint._chart.data;
-   var datasetIndex = activePoint._datasetIndex;
-   var label = data.datasets[datasetIndex].label;
-   var value = data.datasets[datasetIndex].data[activePoint._index];
-   var to = data.labels[activePoint._index];
-				alert("Bar clicked. E is "+evt+" legendItem "+legendItem+"Main is +"+label+"Value is :"+value+"TO is : "+to);
+
+				if (activePoint) {
+					var data = activePoint._chart.data;
+					var datasetIndex = activePoint._datasetIndex;
+					var label = data.datasets[datasetIndex].label;
+					var value = data.datasets[datasetIndex].data[activePoint._index];
+					var to = data.labels[activePoint._index];
+					alert("Bar clicked. E is " + evt + " legendItem " + legendItem + "Main is +" + label + "Value is :" + value + "TO is : " + to);
+				}
+
 			}
 		} // options
 	}
