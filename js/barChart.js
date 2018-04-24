@@ -97,8 +97,18 @@ var bar_chart = new Chart(bar_ctx, {
 				display: true,
 				position: 'bottom',
 				onClick: function (evt, item) {
-					alert('legend onClick: event:' + evt+'item :'+ item);
+					alert('legend onClick: event:' + evt+'item :'+ item.text);
 				}
+			},
+			onClick : function(evt, legendItem) {
+
+				var activePoint = bar_chart.getElementAtEvent(evt)[0];
+   var data = activePoint._chart.data;
+   var datasetIndex = activePoint._datasetIndex;
+   var label = data.datasets[datasetIndex].label;
+   var value = data.datasets[datasetIndex].data[activePoint._index];
+   var to = data.labels[activePoint._index];
+				alert("Bar clicked. E is "+evt+" legendItem "+legendItem+"Main is +"+label+"Value is :"+value+"TO is : "+to);
 			}
 		} // options
 	}
