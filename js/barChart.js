@@ -5,6 +5,11 @@ var numberWithCommas = function (x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
+Chart.defaults.global.onClick = function(p1,p2) {
+alert("Here : Global")
+}
+
+
 var dataPack1 = [2, 6, 44, 9, 32];
 var dataPack2 = [4, 18, 9, 9, 19];
 var dataPack3 = [3, 7, 16, 8, 10];
@@ -14,7 +19,7 @@ var dates = ["LC15699", "MC7346V1", "MR15678", "MR6758587", "MR54535646"];
 
 var bar_ctx = document.getElementById('barChart');
 var bar_chart = new Chart(bar_ctx, {
-		type: 'bar',
+		type: 'horizontalBar',
 		data: {
 			labels: dates,
 			datasets: [
@@ -86,9 +91,9 @@ var bar_chart = new Chart(bar_ctx, {
 					},
 					stacked: true,
 					ticks: {
-						callback: function (value) {
+					/*	callback: function (value) {
 							return numberWithCommas(value);
-						},
+						},*/
 					},
 				}],
 			}, // scales
@@ -96,11 +101,12 @@ var bar_chart = new Chart(bar_ctx, {
 				display: true,
 				position: 'bottom',
 				onClick: function (evt, item) {
+					alert("Legend");
 					alert('legend onClick: event:' + evt + 'item :' + item.text);
 				}
 			},
 			onClick: function (evt, legendItem, x) {
-
+				alert("default");
 				var activePoint = bar_chart.getElementAtEvent(evt)[0];
 
 				if (activePoint) {
@@ -116,6 +122,8 @@ var bar_chart = new Chart(bar_ctx, {
 		} // options
 	}
 );
+
+
 
 // Bar - end
 

@@ -87,9 +87,9 @@ var myMixedChart = new Chart(ctx, {
 		},
 		plugins: {
 			datalabels: {
-				backgroundColor: function (context) {
+			/*	backgroundColor: function (context) {
 					return context.dataset.backgroundColor;
-				},
+				},*/
 				borderRadius: 6,
 				color: 'black',
 				font: {

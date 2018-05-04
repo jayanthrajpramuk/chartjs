@@ -49,6 +49,19 @@ var optionObject = {
 			}
 		}
 	},
+	plugins: {
+				datalabels: {
+				/*	backgroundColor: function (context) {
+						return context.dataset.backgroundColor;
+					},*/
+					borderRadius: 0,
+					color: 'black',
+					font: {
+						weight: 'bold'
+					},
+					formatter: Math.round
+				}
+			},
 	onClick : function(e, legendItem) {
         var activePoints = myChart.getElementsAtEvent(e);
         if (activePoints[0]) {
@@ -80,17 +93,24 @@ var optionObject = {
 };
 
 var dataObject = {
-    labels: ["Stored", "Ready To Store", "Ordered", "Placed", "In Transit"],
+    labels: ["Stored", "Ready To Store", "Ordered", "Placed", "In Transit","Status 6","Status 7","Status 8","Status 9","Status 10","Status 11"],
     datasets: [{
         backgroundColor: [
-            "#2ecc71",
+            "#7acc58",
             "#3498db",
-            "#95a5a6",
-            "#9b59b6",
-            "#f1c40f"
+            "#aeab46",
+            "#006600",
+            "#9966ff",
+            "#00ff80",
+            "#ff8566",
+            "#ff9f40",
+            "#ff6483",
+            "#c9cbcf",
+            "#4cbfbf"
+
 
         ],
-        data: [12, 19, 3, 17, 28]
+        data: [12, 19, 1, 17, 28,6,7,8,9,1,11]
     }]
 };
 
