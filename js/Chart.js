@@ -7084,7 +7084,7 @@ defaults._set('scale', {
 		padding: 0,
 		reverse: false,
 		display: true,
-		autoSkip: true,
+		autoSkip: false,
 		autoSkipPadding: 0,
 		labelOffset: 0,
 		// We pass through arrays to be rendered as multiline labels, we convert Others to strings here.
