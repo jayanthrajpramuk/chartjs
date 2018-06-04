@@ -122,21 +122,29 @@ var data = [{
 	}];
 
 var dataLables = _.pluck(data, 'dataLabel');
-//console.log(_.uniq(dataLables));
+console.log(_.uniq(dataLables));
 
 var statusBar = ['NOT_PLACED', 'PLACED', 'RECIEVED', 'READY_TO_STORE', 'PROCURED', 'BORROWED', 'STORED', 'SCRAPPED', 'REQUESTED'];
 
+var returnObj = {};
+returnObj['dataLabels'] = dataLables;
+returnObj['statusBar'] = statusBar;
+
+
+
 _.each(statusBar, function (v) {
 var array=[];
+var itemValmain;
 //console.log(v+"Array = ");
 	_.each(dataLables, function (m) {
 		var itemVal = getArray(m, v);
 		array.push(itemVal);
-	//console.log(v + ':' + ':' + m + ':' + itemVal)
+		itemValmain = itemVal;
+		console.log(v + ':' + ':' + m + ':' + itemVal)
 	});
-	//console.log(array);
-
-})
+	console.log(array);
+	returnObj[v] = array;
+});
 
 function getArray(a, b) {
 
@@ -144,11 +152,12 @@ function getArray(a, b) {
 		return v.dataLabel == a
 	});
 	var x = filterSingleLabel[0].dataSet;
-	// console.log(x)
+	console.log(x)
 
 	var arrayObj = _.filter(x, function (v, k) {
 		return v.datasetlabel == b
-	})
+	});
+	console.log(arrayObj);
 	return arrayObj[0].datasetValue[0];
 	// console.log(arrayObj);
 }

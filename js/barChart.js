@@ -72,12 +72,11 @@ var optionObj = {
 
 			onComplete: function (animation) {
 				var sourceCanvas = myLiveChart.chart.canvas;
-				myLiveChart.scales["x-axis-0"].options.ticks.autoSkip = false;
-				myLiveChart.scales["x-axis-0"].options.ticks.stepSize = 1;
 				var copyWidth = myLiveChart.scales['y-axis-0'].width - 10;
 				var copyHeight = myLiveChart.scales['y-axis-0'].height + myLiveChart.scales['y-axis-0'].top + 10;
 				var targetCtx = document.getElementById("mybarChartAxis").getContext("2d");
 				targetCtx.canvas.width = copyWidth;
+				targetCtx.canvas.height = copyHeight;
 				targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
 			}
 		},
@@ -109,7 +108,8 @@ var optionObj = {
 						return numberWithCommas(value);
 					},
 					min: 0,
-					autoSkip: false
+					autoSkip: false,
+					stepSize:5
 				},
 			}],
 		}, // scales
@@ -168,10 +168,13 @@ setTimeout(function () {
 		myLiveChart.data.datasets[2].data.push(dataPack3[i]);
 		myLiveChart.data.labels.push(dates[i]);
 		var newwidth = $('.chartAreaWrapper2').width() + 60;
+		var newheight = $('.chartAreaWrapper2').height() + 20;
 			$('.chartAreaWrapper2').width(newwidth);
+		$('.chartAreaWrapper2').height(newheight);
 		//$('.chartAreaWrapper').animate({scrollLeft: newwidth}); // time consuming
 	}
 	$('.chartAreaWrapper').animate({scrollLeft: 0});
+
 
 	/*var newwidth = $('.chartAreaWrapper2').width() + 60;
 	$('.chartAreaWrapper2').width(newwidth);*/
